@@ -1,10 +1,10 @@
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
-ActiveRecord::Base.establish_connection(
-  adapter: "sqlite3",
-  database: "db/artists.sqlite"
-)
+# ActiveRecord::Base.establish_connection(
+#   adapter: "sqlite3",
+#   database: "db/artists.sqlite"
+# )
 
 desc "Runs a Pry console"
 task :console do
@@ -15,14 +15,14 @@ task :console do
   Pry.start
 end
 
-sql = <<-SQL
-  CREATE TABLE IF NOT EXISTS artists (
-  id INTEGER PRIMARY KEY,
-  name TEXT,
-  genre TEXT,
-  age INTEGER,
-  hometown TEXT
-  )
-SQL
+# sql = <<-SQL
+#   CREATE TABLE IF NOT EXISTS artists (
+#   id INTEGER PRIMARY KEY,
+#   name TEXT,
+#   genre TEXT,
+#   age INTEGER,
+#   hometown TEXT
+#   )
+# SQL
 
 ActiveRecord::Base.connection.execute(sql)
